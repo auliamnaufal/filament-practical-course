@@ -20,6 +20,8 @@ class UserResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
+    protected static ?string $recordTitleAttribute = 'name';
+
     public static function form(Form $form): Form
     {
         return $form
@@ -94,5 +96,10 @@ class UserResource extends Resource
 
     public static function canDeleteAny(): bool {
         return false;
+    }
+
+    public static function getGloballySearchableAttributes(): array
+    {
+        return ['name', 'email'];
     }
 }
