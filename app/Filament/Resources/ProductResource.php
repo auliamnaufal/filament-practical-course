@@ -23,8 +23,8 @@ class ProductResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')->required(),
-                Forms\Components\TextInput::make('price')->required(),
+                Forms\Components\TextInput::make('name')->required()->rule('max:100'),
+                Forms\Components\TextInput::make('price')->required()->numeric(),
             ]);
     }
 
