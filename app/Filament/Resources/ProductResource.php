@@ -41,10 +41,7 @@ class ProductResource extends Resource
                     ->rule('max:100'),
                 Forms\Components\TextInput::make('slug')->required(),
                 Forms\Components\TextInput::make('price')->required()->numeric(),
-                Forms\Components\FileUpload::make('image'),
-                Forms\Components\Select::make('tags')
-                    ->multiple()
-                    ->relationship('tags', 'name')
+                Forms\Components\FileUpload::make('image')
             ]);
     }
 
@@ -71,7 +68,7 @@ class ProductResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            RelationManagers\TagsRelationManager::class
         ];
     }
 
